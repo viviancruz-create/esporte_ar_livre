@@ -1,3 +1,11 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+import { Menucomponent } from './component/menucomponent/menucomponent';
+
+export const routes: Routes = [
+    {
+        path:'',
+        re
+        
+    }
+];
