@@ -5,7 +5,8 @@ import { Menucomponent } from './component/menucomponent/menucomponent';
 export const routes: Routes = [
     {
         path:'',
-        re
-        
-    }
+        redirectTo:"/home",
+        pathMatch: 'full'  
+    },
+    
 ];
