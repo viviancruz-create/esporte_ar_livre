@@ -8,10 +8,10 @@
 }
 
 :root{
-    --cor-primaria: ;
+    --cor-primaria:#54d354 ;
     --cor-secundaria: ;
-    --branca: ;
-    --cor-botao1: ;
-    --cor-botao2: ;
+    --branca: #fff;
+    --cor-botao1:#095003 ;
+    --cor-botao2:#e9e063 ;
 
 }

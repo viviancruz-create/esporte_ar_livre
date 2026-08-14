@@ -1,7 +1,7 @@
 <div id="div-form">
     <h2>Cadastro Atleta</h2>
     
-    <form id="form-atleta">
+    <form id="form-atleta" (submit)="salvarAtleta()">
         <label for="nome">Nome</label>
         <input type="text" name="nome" id="nome" class="input01" required maxlength="80" placeholder="informe seu nome">
 
@@ -14,23 +14,23 @@
         <input type="radio" name="sexo" id="sexoN" class="btnSelecao" value="N"> Não se Identificar
 
         <label for="cep">CEP</label>
-        <input type="text" name="cep" id="cep" class="input02" required maxlength="9" placeholder="informe seu cep">
+        <input type="text" name="cep" [(ngMobel)]="cep" id="cep" class="input02" required maxlength="9" placeholder="informe seu cep">
         
         <label for="rua-logradouro">Rau/Logradouro</label>
-        <input type="text" name="rua-logradouro" id="rua-logradouro" class="input01" required maxlength="100" placeholder="informe rua/logradouro">
+        <input type="text" name="rua-logradouro" [(ngMobel)]="rua-logradouro" id="rua-logradouro" class="input01" required maxlength="100" placeholder="informe rua/logradouro">
 
         <label for="bairro">Bairro</label>
-        <input type="text" name="bairro" id="bairro" class="input02" required maxlength="20" placeholder="informe seu bairro">
+        <input type="text" name="bairro" [(ngMobel)]="bairro" id="bairro" class="input02" required maxlength="20" placeholder="informe seu bairro">
 
         <label for="cidade">Cidade</label>
-        <input type="text" name="cidade" id="cidade" class="input02" required maxlength="60" placeholder="informe sua cidade">
+        <input type="text" name="cidade" [(ngMobel)]="cidade" id="cidade" class="input02" required maxlength="60" placeholder="informe sua cidade">
 
         <label for="uf">UF</label>
-        <input type="text" name="uf" id="uf" class="input02" required maxlength="2" placeholder="informe seu uf">
+        <input type="text" name="uf" [(ngMobel)]="uf" id="uf" class="input02" required maxlength="2" placeholder="informe seu uf">
 
         <div id="div-btns">
-            <button type="submit" id="btnAdd">Cadastrar Atleta</button>
-            <button type="reset" id="btnLimpar">Cadastrar Atleta</button>
+            <button type="submit" id="btnAdd" >Cadastrar Atleta</button>
+            <button type="reset" id="btnLimpar" (click)="limpar()">Cadastrar Atleta</button>
 
         </div>
     </form>

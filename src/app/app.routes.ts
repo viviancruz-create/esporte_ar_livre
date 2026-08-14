@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
-import { Menucomponent } from './component/menucomponent/menucomponent';
+import { HomeComponent } from './component/home-component/home-component';
+import { Atletacomponent } from './component/atletacomponent/atletacomponent';
 
 export const routes: Routes = [
     {
@@ -8,5 +9,13 @@ export const routes: Routes = [
         redirectTo:"/home",
         pathMatch: 'full'  
     },
+    {
+        path:"home",
+        component:HomeComponent
+    },
+    {
+        path:"cadastroatleta",
+        component:Atletacomponent
+    }
     
 ];
