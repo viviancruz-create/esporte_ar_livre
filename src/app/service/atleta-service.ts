@@ -9,9 +9,9 @@ export class AtletaService {
 
     adicionar (pessoa:Pessoa) {
       //armengue para gerar o id
-        pessoa.id = this.atleta.length +1
+        pessoa.id = this.atletas.length +1
 
-        this.atleta.push(pessoa)
+        this.atletas.push(pessoa)
     }
 
     listar(){
