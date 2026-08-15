@@ -38,6 +38,8 @@ constructor(private atletaService: AtletaService){}
     this.atletaService.adicionar(pessoaAtleta)
 
     this.atletaService.listar()
+
+    this.limpar()
   
   
   }
