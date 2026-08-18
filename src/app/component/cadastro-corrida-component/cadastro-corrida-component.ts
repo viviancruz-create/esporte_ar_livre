@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './cadastro-corrida-component.css',
 })
 export class CadastroCorridaComponent {
-  descricao_da_corrida:
-  data_da_corrida:
-  distancia_disponiveis:
+  descricao_da_corrida =''
+  data_da_corrida  = 0
+  distancia_disponiveis = 0
 }
