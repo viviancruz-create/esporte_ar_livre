@@ -42,8 +42,7 @@ export class AtletaService {
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Atleta } from '../models/Atleta';
-
+import { Pessoa } from '../models/pessoa';
 @Injectable({
   providedIn: 'root',
 })
@@ -52,38 +51,38 @@ export class AtletaService {
   constructor(private http: HttpClient) { }
 
   //ADICIONAR NA API
-  adicionarAtleta(atleta: Atleta): Observable<Atleta> {
+  adicionarAtleta(atleta: Pessoa): Observable<Pessoa> {
     const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta`
 
-    return this.http.post<Atleta>(urlApi, atleta)
+    return this.http.post<Pessoa>(urlApi, atleta)
   }
 
   //LISTAR ATLETAS NA API
-  listarAtletas(): Observable<Atleta[]> {
+  listarAtletas(): Observable<Pessoa[]> {
     const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta`
 
-    return this.http.get<Atleta[]>(urlApi)
+    return this.http.get<Pessoa[]>(urlApi)
   }
 
   //LISTAR ATLETA
-  listarAtleta(idAtleta: number):Observable<Atleta>{
+  listarAtleta(idAtleta: number):Observable<Pessoa>{
     const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${idAtleta}`
 
-    return this.http.get<Atleta>(urlApi)
+    return this.http.get<Pessoa>(urlApi)
   }
 
   //EXCLUIR NA API
-  exluirAtleta(atleta: Atleta): Observable<Atleta> {
+  exluirAtleta(atleta: Pessoa): Observable<Pessoa> {
     const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${atleta.id}`
 
-    return this.http.delete<Atleta>(urlApi)
+    return this.http.delete<Pessoa>(urlApi)
   }
 
   //ALTERAR NA API
-  alterarAtleta(atleta: Atleta):Observable<Atleta>{
+  alterarAtleta(atleta: Pessoa):Observable<Pessoa>{
     const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${atleta.id}`
 
-    return this.http.put<Atleta>(urlApi, atleta)
+    return this.http.put<Pessoa>(urlApi, atleta)
   }
 
   /*

@@ -3,21 +3,21 @@
     
     <form id="form-atleta" (submit)="salvarAtleta()">
         <label for="nome">Nome</label>
-        <input type="text" name="nome" id="nome" class="input01" required maxlength="80" placeholder="informe seu nome">
+        <input type="text" name="nome" [(ngModel)]= "nome" id="nome" class="input01" required maxlength="80" placeholder="informe seu nome">
 
         <label for="cpf">CPF</label>
-        <input type="text" name="cpf" id="cpf" class="input02" required maxlength="14" placeholder="informe seu cpf">
+        <input type="text" name="cpf" [(ngModel)]= "cpf" id="cpf" class="input02" required maxlength="14" placeholder="informe seu cpf">
 
         <label for="sexo">Sexo</label>
-        <input type="radio" name="sexo" id="sexoM" class="btnSelecao" value="M"> Masculino
-        <input type="radio" name="sexo" id="sexoF" class="btnSelecao" value="F"> Feminino
-        <input type="radio" name="sexo" id="sexoN" class="btnSelecao" value="N"> Não se Identificar
+        <input type="radio" name="sexo" id="sexoM" class="btnSelecao" value="M" [(ngModel)]= "sexo"> Masculino
+        <input type="radio" name="sexo" id="sexoF" class="btnSelecao" value="F" [(ngModel)]= "sexo"> Feminino
+        <input type="radio" name="sexo" id="sexoN" class="btnSelecao" value="N" [(ngModel)]= "sexo"> Não se Identificar
 
         <label for="cep">CEP</label>
-        <input type="text" name="cep" [(ngModel)]="cep" id="cep" class="input02" required maxlength="9" placeholder="informe seu cep">
+        <input type="text" name="cep" [(ngModel)]= "cep" id="cep" class="input02" required maxlength="9" placeholder="informe seu cep">
         
         <label for="rua-logradouro">Rau/Logradouro</label>
-        <input type="text" name="rua-logradouro" [(ngModel)]= "ruaLogradouro" id="rua-logradouro" class="input01" required maxlength="100" placeholder="informe rua/logradouro">
+        <input type="text" name="rua-logradouro" [(ngModel)]= "rua_logradouro" id="rua-logradouro" class="input01" required maxlength="100" placeholder="informe rua/logradouro">
 
         <label for="bairro">Bairro</label>
         <input type="text" name="bairro" [(ngModel)]="bairro" id="bairro" class="input02" required maxlength="20" placeholder="informe seu bairro">

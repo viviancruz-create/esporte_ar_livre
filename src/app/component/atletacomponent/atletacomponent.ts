@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AtletaService } from '../../service/atleta-service';
 import { Pessoa } from '../../models/pessoa';
 import { ActivatedRoute } from '../../../../node_modules/@angular/router/types/_router_module-chunk';
-import { ChangeDetectorRef } from '../../../../node_modules/@angular/core/types/_debug_node-chunk';
+
 @Component({
   selector: 'app-atletacomponent',
   imports: [FormsModule],
@@ -108,8 +108,8 @@ constructor(private atletaService: AtletaService){}
        })
    }
  
-   enviaDadosAtleta() {
-     const pessoaAtleta = new Atleta()
+   salvarAtleta() {
+     const pessoaAtleta = new Pessoa()
      pessoaAtleta.nome = this.nome
      pessoaAtleta.cpf = this.cpf
      pessoaAtleta.sexo = this.sexo
@@ -146,7 +146,7 @@ constructor(private atletaService: AtletaService){}
  
      }
  
-     this.limparAtributos()
+     this.limpar()
  
    }
  
@@ -162,7 +162,7 @@ constructor(private atletaService: AtletaService){}
        })
    }
  
-   limparAtributos() {
+   limpar() {
      this.nome = ''
      this.cpf = 0
      this.sexo = ''
