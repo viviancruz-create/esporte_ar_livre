@@ -2,16 +2,17 @@
 <h2>Cadastro Corrida</h2>
 <form id="cadastro-corrida">
     <label for="descricao_da_corrida">DescriÇão da Corrida</label>
-    <input type="text" name="descricao_da_corrida" id="descricao_da_corrida" class="input01" required maxlength="80" placeholder="Ex: 5ª Maratona Noturna da Cidade">
+    <textarea name="descricao_corrida" [(ngModel)] = "descricao_corrida" id="descricao_corrida" class="elem-form01"  maxlength="300" placeholder="Ex: 5ª Maratona Noturna da Cidade"></textarea>
 
-    <label for="data_da_corrida">Data da Corrida</label>
-    <input type="number" name="data_da_corrida" id="data_da_corrida" class="input02" required maxlength="8" placeholder="dd/mm/aaaa">
+    <label for="data_corrida">Data da Corrida</label>
+    <input type="date" name="data_corrida" [(ngModel)] = "data_corrida" id="data_corrida" class="input02" required maxlength="8" placeholder="dd/mm/aaaa">
 
     <label for="distancia_disponiveis">Distâncias Disponiveis</label>
-    <input type="radio" name="distancia_disponiveis" id="distancia_disponiveis5"  class="btnSelecao" value="5"> 5km
-    <input type="radio" name="distancia_disponiveis" id="distancia_disponiveis10" class="btnSelecao" value="10"> 10km
-    <input type="radio" name="distancia_disponiveis" id="distancia_disponiveis25" class="btnSelecao" value="25"> 25km
-
+    <div id="div-checkbox">
+    <input type="checkbox" name="distancia_disponiveis" [(ngModel)]= "distancia_disponiveis5" id="distancia_disponiveis5"  class="btnSelecao" value="5"> 5km
+    <input type="checkbox" name="distancia_disponiveis" [(ngModel)]= "distancia_disponiveis10" id="distancia_disponiveis10" class="btnSelecao" value="10"> 10km
+    <input type="checkbox" name="distancia_disponiveis" [(ngModel)]= "distancia_disponiveis25" id="distancia_disponiveis25" class="btnSelecao" value="25"> 25km
+</div>
     <div id="div-btns">
         <button type="submit" id="btnAdd" >Cadastrar Corrida</button>
     </div>
