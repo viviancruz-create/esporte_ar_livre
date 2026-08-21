@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { CorridaService } from '../../service/corrida-service';
-import { corridas } from '../../models/corrida';
-import { signal } from '../../../../node_modules/@angular/core/types/_chrome_dev_tools_performance-chunk';
+import { Component, signal } from '@angular/core';
+import { CorridaService } from '../../../service/corrida/corrida-service';
+import { Corrida } from '../../../models/Corrida';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-corrida-lista-component',
   imports: [],
@@ -9,29 +10,56 @@ import { signal } from '../../../../node_modules/@angular/core/types/_chrome_dev
   styleUrl: './corrida-lista-component.css',
 })
 export class CorridaListaComponent {
-  listaCorrida = signal<corridas[]>([])
 
-  constructor(private corridaService: CorridaService){}
+  listaCorridas = signal<Corrida[]>([])
 
-  ngOInit(){
+  constructor(
+     private corridaService: CorridaService,
+     private router: Router
+    ) { }
+
+  ngOnInit() {
     this.listar()
   }
 
-  listar(){
+
+  //listar
+  listar() {
     this.corridaService.listarCorridas()
-    .subscribe({
-      next: (dadosCorrida) =>{
-        this.listaCorrida.set([...dadosCorrida])
-      },
-      error(): (msgErro) => {
-        console.log(msgErro)
-      }
-      
-    })
-   
+      .subscribe({
+        next: (dadosCorrida) => {
+          this.listaCorridas.set([...dadosCorrida])
+        },
+        error: (msgErro) => {
+          console.log(msgErro)
+        }
+      })
   }
 
-  excluir(objCorrida: corridas){
-    if(confirm('Deseja excluir a corrida'))
+  excluir(objCorrida: Corrida) {
+    if (confirm(`Deseja excluir a corrida ${objCorrida.descricao_corrida}`)) {
+      this.corridaService.excluirCorrida(objCorrida.id)
+        .subscribe({
+          next: (repostaAPI) => {
+            this.listaCorridas.update(elem =>
+              elem.filter(a => a.id !== objCorrida.id)            )
+            console.log('Atleta excluído com Sucesso ', repostaAPI)
+          },
+          error: (msgErro) => {
+            return msgErro
+          }
+        })
+    }
+
+    this.ngOnInit()
+
   }
-}
+
+  carregandoDadosForm(ObjCorrida: Corrida){
+
+    this.router.navigate(["/alteracorrida", ObjCorrida.id])
+    
+  }
+
+
+} 

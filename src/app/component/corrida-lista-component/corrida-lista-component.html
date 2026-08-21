@@ -2,14 +2,14 @@
     <h2>Lista Corrida</h2>
 
       <div id="lista-corrida">
-        @for (elem of listaCorrida(); track elem.id) {
-        <div class="item-atletas">
-            <span class="dados-atleta">
-                {{elem.descricao_corrida}} - {{elem.data_corrida}} - {{elem.distancia_disponiveis5}} - {{elem.distancia_disponiveis10}} - {{elem.distancia_disponiveis25}} -{{elem.uf}}
+        @for (elem of listaCorridas(); track elem.id) {
+        <div class="item-corrida">
+            <span class="dados-corrida">
+                {{elem.descricao_corrida}} - {{elem.data_corrida}} - {{elem.distancia5km ? '5km':''}} - {{elem.distancia10km ? '10km':''}} - {{elem.distancia25km ? '25km':''}}
             </span>
             <span class="links-lista">
-                <a class="lnk-editar" (click)="buscarPessoa(elem)"> Editar </a>
-                <a class="lnk-excluir" (click)="excluirCorrida(elem)"> Excluir </a>
+                <a class="lnk-editar" (click)="carregandoDadosForm(elem)"> Editar </a>
+                <a class="lnk-excluir" (click)="excluir(elem)"> Excluir </a>  
             </span>
         </div>
         }@empty{

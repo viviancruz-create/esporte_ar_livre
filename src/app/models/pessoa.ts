@@ -9,7 +9,4 @@ export class Pessoa{
   cidade: string = ''
   uf: string =''
 
-  descricao_da_corrida: string =''
-  data_da_corrida: number = 0
-  distancia_disponiveis: number = 0
 }

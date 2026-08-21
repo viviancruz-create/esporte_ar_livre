@@ -5,6 +5,8 @@ import { Atletacomponent } from './component/atletacomponent/atletacomponent';
 import { CadastroCorridaComponent } from './component/cadastro-corrida-component/cadastro-corrida-component';
 import { Menucomponent } from './component/menucomponent/menucomponent';
 import { AtletaListaComponent } from './component/atleta-lista-component/atleta-lista-component';
+import { CorridaListaComponent } from './component/corrida-lista-component/corrida-lista-component';
+
 export const routes: Routes = [
     {
         path:'',
@@ -16,7 +18,7 @@ export const routes: Routes = [
         component:HomeComponent
     },
     {
-        path:"cadastroatleta",
+        path:"cadastroatleta/:id",
         component:Atletacomponent
     },
     {
@@ -28,6 +30,15 @@ export const routes: Routes = [
         component:Menucomponent
     },
     {  path:"listaatleta",
-    component:AtletaListaComponent}
+    component:AtletaListaComponent
+   },
+   {
+    path: "alteracorrida/:id",
+    component: CadastroCorridaComponent
+},
+    {
+        path: "listacorrida",
+        component:CorridaListaComponent
+    }
     
 ];

@@ -1,20 +1,22 @@
 <div id="div-form">
-<h2>Cadastro Corrida</h2>
-<form id="cadastro-corrida">
-    <label for="descricao_da_corrida">DescriÇão da Corrida</label>
+    <h2>{{editar? 'Alterar': 'Cadastrar' }} Corrida </h2>
+
+    <form id="form-atleta" (submit)="dadosFormulario()" >
+    <label for="descricao_corrida">DescriÇão da Corrida</label>
     <textarea name="descricao_corrida" [(ngModel)] = "descricao_corrida" id="descricao_corrida" class="elem-form01"  maxlength="300" placeholder="Ex: 5ª Maratona Noturna da Cidade"></textarea>
 
     <label for="data_corrida">Data da Corrida</label>
-    <input type="date" name="data_corrida" [(ngModel)] = "data_corrida" id="data_corrida" class="input02" required maxlength="8" placeholder="dd/mm/aaaa">
+    <input type="date" name="data_corrida" [(ngModel)] = "data_corrida" id="data_corrida" class="input02" required  placeholder="dd/mm/aaaa">
 
     <label for="distancia_disponiveis">Distâncias Disponiveis</label>
     <div id="div-checkbox">
-    <input type="checkbox" name="distancia_disponiveis" [(ngModel)]= "distancia_disponiveis5" id="distancia_disponiveis5"  class="btnSelecao" value="5"> 5km
-    <input type="checkbox" name="distancia_disponiveis" [(ngModel)]= "distancia_disponiveis10" id="distancia_disponiveis10" class="btnSelecao" value="10"> 10km
-    <input type="checkbox" name="distancia_disponiveis" [(ngModel)]= "distancia_disponiveis25" id="distancia_disponiveis25" class="btnSelecao" value="25"> 25km
+    <input type="checkbox" name="distancia5km" [(ngModel)]= "distancia5km" id="distancia5km"  class="btnSelecao" value="5km"> 5km
+    <input type="checkbox" name="distancia10km" [(ngModel)]= "distancia10km" id="distancia10km" class="btnSelecao" value="10km"> 10km
+    <input type="checkbox" name="distancia25km" [(ngModel)]= "distancia25km" id="distancia25km" class="btnSelecao" value="25km"> 25km
 </div>
     <div id="div-btns">
-        <button type="submit" id="btnAdd" >Cadastrar Corrida</button>
+        <button type="submit" id="btnAdd">{{editar? 'Alterar': 'Cadastrar' }} Corrida </button>
+        <button type="reset" id="btnLimpar"> Limpar </button>
     </div>
     
 </form>
