@@ -2,7 +2,7 @@ import { Component, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AtletaService } from '../../service/atleta-service';
 import { Pessoa } from '../../models/pessoa';
-import { ActivatedRoute } from '../../../../node_modules/@angular/router/types/_router_module-chunk';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-atletacomponent',

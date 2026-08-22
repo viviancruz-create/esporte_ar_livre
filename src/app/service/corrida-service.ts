@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Corrida } from '../../models/Corrida';
+import { Corrida } from '../models/corrida';
 import { Observable } from 'rxjs';
 
 @Injectable({

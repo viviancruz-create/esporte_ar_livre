@@ -1,8 +1,8 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { FormsModule } from '../../../../node_modules/@angular/forms/types/forms';
-import { corridas } from '../../models/corrida';
+import { FormsModule } from '@angular/forms';
+import { Corrida } from '../../models/corrida';
 import { CorridaService } from '../../service/corrida-service';
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-corrida-component',
@@ -40,7 +40,7 @@ ngOnInit() {
 }
 
 dadosFormulario(){
-  const corrida = new corridas ()
+  const corrida = new Corrida ()
   corrida.descricao_corrida = this.descricao_corrida
   corrida.data_corrida = this.data_corrida
   corrida.distancia5km = this.distancia5km
