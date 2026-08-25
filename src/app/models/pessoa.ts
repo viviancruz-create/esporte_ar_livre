@@ -2,6 +2,7 @@ export class Pessoa{
     id: number = 0
     nome: string = ''
     cpf: number = 0
+    data_nascimento: string = ''
     sexo: string = ''
     cep: number = 0
   rua_logradouro: string = ''

@@ -65,5 +65,13 @@ export class AtletaListaComponent {
     this.router.navigate(['/cadastroatleta', idAtleta])
   }
 
+
+  calcularIdade(data_nascimento: string){
+    return this.http.calcularIdade(data_nascimento)
+
+  }
+    
+  
+
   
 }//FIM COMPONENT AtletaListaComponent

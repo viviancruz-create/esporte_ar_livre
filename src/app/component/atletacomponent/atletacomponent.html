@@ -8,6 +8,9 @@
         <label for="cpf">CPF</label>
         <input type="text" name="cpf" [(ngModel)]= "cpf" id="cpf" class="input02" required maxlength="14" placeholder="informe seu cpf">
 
+        <label for="nascimento">Data de Nascimento</label>
+        <input type="date" name="nascimento" [(ngModel)]= "data_nascimento" id="nascimento" class="input02" required >
+
         <label for="sexo">Sexo</label>
         <input type="radio" name="sexo" id="sexoM" class="btnSelecao" value="M" [(ngModel)]= "sexo"> Masculino
         <input type="radio" name="sexo" id="sexoF" class="btnSelecao" value="F" [(ngModel)]= "sexo"> Feminino
@@ -30,7 +33,7 @@
 
         <div id="div-btns">
             <button type="submit" id="btnAdd">{{ editar ? 'Alterar' : 'Salvar'}}Atleta </button>
-            <button type="reset" id="btnLimpar" (click)="limpar()">Cadastrar Atleta</button>
+            <button type="reset" id="btnLimpar" (click)="limpar()">Limpar</button>
 
         </div>
     </form>

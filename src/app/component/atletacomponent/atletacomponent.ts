@@ -59,6 +59,7 @@ constructor(private atletaService: AtletaService){}
    id = 0
    nome = ''
    cpf = 0
+   data_nascimento = ''
    sexo = ''
    cep = 0
    rua_logradouro = ''
@@ -94,6 +95,7 @@ constructor(private atletaService: AtletaService){}
            this.id = objAtleta.id
            this.nome = objAtleta.nome
            this.cpf = objAtleta.cpf
+           this.data_nascimento = objAtleta.data_nascimento
            this.sexo = objAtleta.sexo
            this.cep = objAtleta.cep
            this.rua_logradouro = objAtleta.rua_logradouro
@@ -112,6 +114,7 @@ constructor(private atletaService: AtletaService){}
      const pessoaAtleta = new Pessoa()
      pessoaAtleta.nome = this.nome
      pessoaAtleta.cpf = this.cpf
+     pessoaAtleta.data_nascimento = this.data_nascimento
      pessoaAtleta.sexo = this.sexo
      pessoaAtleta.cep = this.cep
      pessoaAtleta.rua_logradouro = this.rua_logradouro
@@ -165,6 +168,7 @@ constructor(private atletaService: AtletaService){}
    limpar() {
      this.nome = ''
      this.cpf = 0
+     this.data_nascimento = ''
      this.sexo = ''
      this.cep = 0
      this.rua_logradouro = ''
