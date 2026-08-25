@@ -45,5 +45,11 @@ export const routes: Routes = [
     component: CorridaListaComponent
   },
   { path: 'inscricao', 
+<<<<<<< HEAD
   component: InscricaoComponent }
+=======
+    component: InscricaoComponent 
+  }
+
+>>>>>>> 3e9f13831d4632370420c4d3eb58a222663cbe3a
 ];
