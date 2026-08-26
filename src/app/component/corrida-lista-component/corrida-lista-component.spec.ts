@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CorridaListaComponent } from './corrida-lista-component';
+import { CorridaService } from '../../service/corrida-service';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 
 describe('CorridaListaComponent', () => {
   let component: CorridaListaComponent;

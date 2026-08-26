@@ -18,5 +18,7 @@ describe('Atletacomponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
+  })
+
+ 
 });
