@@ -1,15 +1,16 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { AtletaService } from '../../service/atleta-service';
 import { Router } from '@angular/router';
 import { Pessoa } from '../../models/pessoa';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-atleta-lista-component',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './atleta-lista-component.html',
   styleUrl: './atleta-lista-component.css',
 })
-export class AtletaListaComponent {
+export class AtletaListaComponent implements OnInit{
 
   //DECLARAÇÃO ARRAY DO TIPO PESSOA
   //listaAtletas: Atleta[] = []
@@ -52,7 +53,7 @@ export class AtletaListaComponent {
           console.log('Atleta excluído com Sucesso ', dados)
         },
         error: (msgErro) => {
-          console.log("Erro ao Excluir  o atleta ", msgErro)
+          console.error("Erro ao Excluir  o atleta ", msgErro)
         }
       })
 
@@ -61,8 +62,8 @@ export class AtletaListaComponent {
   }
 
   //ALTERAR DADOS
-  buscarPessoa(idAtleta: Pessoa){
-    this.router.navigate(['/cadastroatleta', idAtleta])
+  buscarPessoa(atleta: Pessoa){
+    this.router.navigate(['/cadastroatleta', atleta.id])
   }
 
 

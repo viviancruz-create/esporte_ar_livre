@@ -64,7 +64,7 @@ describe('AtletaListaComponent', () => {
     service.listarAtletas().subscribe(result =>{
       expect(result).toEqual(atletas)
     })
-    const requisicao = httpMock.expectOne('https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta')
+    const requisicao = httpMock.expectOne('http://127.0.0.1:8000/pessoa/3')
 
     expect(requisicao.request.method).toBe('GET')
 
@@ -76,6 +76,8 @@ const atleta: Pessoa ={
   "nome": "Maria",
   "cpf": 78945612300,
   "sexo": "",
+  "peso": 58,
+  "altura":157,
   "cep": 49001456,
   "rua_logradouro": "Rua Capela",
   "bairro": "Centro",
@@ -88,7 +90,7 @@ service.adicionarAtleta(atleta).subscribe(result =>{
   expect(result).toEqual(atleta)
 })
 
-const requisicao = httpMock.expectOne('https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta')
+const requisicao = httpMock.expectOne('http://127.0.0.1:8000/pessoa/3')
 
 expect(requisicao.request.method).toBe('POST')
 requisicao.flush(atleta)
@@ -99,6 +101,8 @@ requisicao.flush(atleta)
       "nome": "Maria",
       "cpf": 78945612300,
       "sexo": "",
+      "peso": 58,
+      "altura":157,
       "cep": 49001456,
       "rua_logradouro": "Rua Capela",
       "bairro": "Centro",
@@ -111,7 +115,7 @@ requisicao.flush(atleta)
       expect(result).toEqual(atleta)
     })
     
-    const requisicao = httpMock.expectOne('https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/3')
+    const requisicao = httpMock.expectOne('http://127.0.0.1:8000/pessoa/3')
     
     expect(requisicao.request.method).toBe('PUT')
     requisicao.flush(atleta) 
@@ -122,6 +126,8 @@ requisicao.flush(atleta)
       "nome": "Maria",
       "cpf": 78945612300,
       "sexo": "",
+      "peso": 58,
+      "altura":157,
       "cep": 49001456,
       "rua_logradouro": "Rua Capela",
       "bairro": "Centro",
@@ -134,7 +140,7 @@ requisicao.flush(atleta)
       expect(result).toEqual(atleta)
     })
     
-    const requisicao = httpMock.expectOne('https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/3')
+    const requisicao = httpMock.expectOne('http://127.0.0.1:8000/pessoa/3')
     
     expect(requisicao.request.method).toBe('DELETE')
     requisicao.flush(atleta) 
