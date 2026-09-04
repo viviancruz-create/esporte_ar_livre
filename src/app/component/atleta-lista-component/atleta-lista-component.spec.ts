@@ -38,6 +38,8 @@ describe('AtletaListaComponent', () => {
       "nome": "Rute",
       "cpf": 78945612300,
       "sexo": "",
+      "peso": 58,
+      "altura":157,
       "cep": 49001456,
       "rua_logradouro": "Rua Capela",
       "bairro": "Centro",
@@ -50,6 +52,8 @@ describe('AtletaListaComponent', () => {
       "nome": "Maria",
       "cpf": 78945612300,
       "sexo": "",
+      "peso": 58,
+      "altura":157,
       "cep": 49001456,
       "rua_logradouro": "Rua Capela",
       "bairro": "Centro",
@@ -64,7 +68,7 @@ describe('AtletaListaComponent', () => {
     service.listarAtletas().subscribe(result =>{
       expect(result).toEqual(atletas)
     })
-    const requisicao = httpMock.expectOne('http://127.0.0.1:8000/pessoa/3')
+    const requisicao = httpMock.expectOne('http://127.0.0.1:8000/pessoa/')
 
     expect(requisicao.request.method).toBe('GET')
 
@@ -90,7 +94,7 @@ service.adicionarAtleta(atleta).subscribe(result =>{
   expect(result).toEqual(atleta)
 })
 
-const requisicao = httpMock.expectOne('http://127.0.0.1:8000/pessoa/3')
+const requisicao = httpMock.expectOne('http://127.0.0.1:8000/pessoa/')
 
 expect(requisicao.request.method).toBe('POST')
 requisicao.flush(atleta)
@@ -115,7 +119,7 @@ requisicao.flush(atleta)
       expect(result).toEqual(atleta)
     })
     
-    const requisicao = httpMock.expectOne('http://127.0.0.1:8000/pessoa/3')
+    const requisicao = httpMock.expectOne('http://127.0.0.1:8000/pessoa/')
     
     expect(requisicao.request.method).toBe('PUT')
     requisicao.flush(atleta) 
@@ -140,7 +144,7 @@ requisicao.flush(atleta)
       expect(result).toEqual(atleta)
     })
     
-    const requisicao = httpMock.expectOne('http://127.0.0.1:8000/pessoa/3')
+    const requisicao = httpMock.expectOne('http://127.0.0.1:8000/pessoa/')
     
     expect(requisicao.request.method).toBe('DELETE')
     requisicao.flush(atleta) 

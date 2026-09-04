@@ -52,14 +52,14 @@ export class AtletaService {
 
   //ADICIONAR NA API
   adicionarAtleta(atleta: Pessoa): Observable<Pessoa> {
-    const urlApi = `http://127.0.0.1:8000/pessoa/`
+    const urlApi = `http://127.0.0.1:8000/pessoa`
 
     return this.http.post<Pessoa>(urlApi, atleta)
   }
 
   //LISTAR ATLETAS NA API
   listarAtletas(): Observable<Pessoa[]> {
-    const urlApi = `http://127.0.0.1:8000/pessoa/`
+    const urlApi = `http://127.0.0.1:8000/pessoa`
 
     return this.http.get<Pessoa[]>(urlApi)
   }

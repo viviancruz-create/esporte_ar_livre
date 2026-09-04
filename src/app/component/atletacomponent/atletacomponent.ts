@@ -77,7 +77,7 @@ constructor(private atletaService: AtletaService){}
  
    //DECLARAÇÃO DE FUNÇÕES
    exibeDados() {
-     console.log(this.nome, this.cpf, this.sexo, this.rua_logradouro, this.bairro, this.cidade, this.uf)
+     console.log(this.nome, this.cpf, this.data_nascimento, this.peso, this.altura, this.sexo, this.rua_logradouro, this.bairro, this.cidade, this.uf)
    }
  
    ngOnInit() {
