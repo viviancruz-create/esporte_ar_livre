@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-atleta-lista-component',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './atleta-lista-component.html',
   styleUrl: './atleta-lista-component.css',
@@ -25,49 +26,29 @@ export class AtletaListaComponent implements OnInit{
   }
 
   //LISTAR OS ATLETAS
-  listarAtletas() {
-    console.log("Iniciando requisição para listar atletas")
-    this.http.listarAtletas()
-      .subscribe({
-        next: (dados) => {
-          console.log("Dados recebidos da API:", dados)
-          //this.listaAtletas = [...dados].sort((a, b) => a.nome.localeCompare(b.nome))
-          this.listaAtletas.set([...dados].sort((a, b) => a.nome.localeCompare(b.nome)))
-          console.log("Signal listaAtletas atualizado:", this.listaAtletas())
-        },
-        error: (msgErro) => {
-          console.log("Erro ao cadastrar  o atleta ", msgErro)
-        }
+ // atleta-lista-component.ts
 
-      })
+listarAtletas() {
+  console.log("Iniciando requisição para listar atletas");
+  this.http.listarAtletas().subscribe({
+    next: (dados) => {
+      console.log("Dados recebidos da API:", dados);
 
-  }
+      // Aplica a classificação do IMC antes de atribuir ao Signal
+      const dadosTratados = dados.map(atleta => ({
+        ...atleta,
+        imc: this.http.classificarIMC(atleta.peso, atleta.altura)
+      }));
 
-  // LISTAR OS ATLETAS (Calcula Idade, IMC e Classificação no Map)
- listaratleta() {
-  this.http.listarAtletas()
-    .subscribe({
-      next: (dados) => {
-        this.listaAtletas.set(
-          dados.map(a => {
-            // Garante altura em metros
-            const altMetros = a.altura > 3 ? a.altura / 100 : a.altura;
-            const calcImc = (a.peso > 0 && altMetros > 0) ? Number((a.peso / (altMetros * altMetros)).toFixed(2)) : 0;
-
-            return {
-              ...a,
-              idade: a.data_nascimento ? String(new Date().getFullYear() - new Date(a.data_nascimento).getFullYear()) : '0',
-              imc: calcImc,
-              classificacaoImc: this.http.classificarIMC(a.peso, a.altura)
-            };
-          }).sort((a, b) => a.nome.localeCompare(b.nome))
-        );
-      },
-      error: (msgErro) => {
-        console.log("Erro ao listar os atletas: ", msgErro);
-      }
-    });
+      // Ordena e atualiza o Signal
+      this.listaAtletas.set(dadosTratados.sort((a, b) => a.nome.localeCompare(b.nome)));
+    },
+    error: (msgErro) => {
+      console.error("Erro ao carregar a lista de atletas: ", msgErro);
+    }
+  });
 }
+
 
   //EXCLUIR ATLETA
   excluirAtleta(atleta: Pessoa){
@@ -100,6 +81,9 @@ export class AtletaListaComponent implements OnInit{
     return this.http.calcularIdade(data_nascimento)
 
   }
+
+ 
+
     
   
 

@@ -52,37 +52,37 @@ export class AtletaService {
 
   //ADICIONAR NA API
   adicionarAtleta(atleta: Pessoa): Observable<Pessoa> {
-    const urlApi = `http://127.0.0.1:8000/pessoa`
+    const urlApi = `http://127.0.0.1:8000/pessoa/`;
 
-    return this.http.post<Pessoa>(urlApi, atleta)
+    return this.http.post<Pessoa>(urlApi, atleta);
   }
 
   //LISTAR ATLETAS NA API
   listarAtletas(): Observable<Pessoa[]> {
-    const urlApi = `http://127.0.0.1:8000/pessoa`
+    const urlApi = `http://127.0.0.1:8000/pessoa/`;
 
-    return this.http.get<Pessoa[]>(urlApi)
+    return this.http.get<Pessoa[]>(urlApi);
   }
 
   //LISTAR ATLETA
   listarAtleta(idAtleta: number):Observable<Pessoa>{
-    const urlApi = `http://127.0.0.1:8000/pessoa/${idAtleta}`
+    const urlApi = `http://127.0.0.1:8000/pessoa/${idAtleta}`;
 
-    return this.http.get<Pessoa>(urlApi)
+    return this.http.get<Pessoa>(urlApi);
   }
 
   //EXCLUIR NA API
   exluirAtleta(atleta: Pessoa): Observable<Pessoa> {
-    const urlApi = `http://127.0.0.1:8000/pessoa/${atleta.id}`
+    const urlApi = `http://127.0.0.1:8000/pessoa/${atleta.id}`;
 
-    return this.http.delete<Pessoa>(urlApi)
+    return this.http.delete<Pessoa>(urlApi);
   }
 
   //ALTERAR NA API
   alterarAtleta(atleta: Pessoa):Observable<Pessoa>{
-    const urlApi = `http://127.0.0.1:8000/pessoa/${atleta.id}`
+    const urlApi = `http://127.0.0.1:8000/pessoa/${atleta.id}`;
 
-    return this.http.put<Pessoa>(urlApi, atleta)
+    return this.http.put<Pessoa>(urlApi, atleta);
   }
 
   calcularIdade(dataNascimento: string): number {
@@ -100,6 +100,32 @@ export class AtletaService {
   
     return idade;
   }
+
+  // Retorna uma string com a classificação do atleta
+classificarIMC(peso: number, altura: number): string {
+  // Evita divisão por zero ou valores inválidos
+  if (!peso || !altura || altura <= 0) {
+    return 'Dados inválidos';
+  }
+
+  // Cálculo do IMC (altura em metros, ex: 1.75)
+  const imc = peso / (altura * altura);
+
+  // Tabela padrão de classificação do IMC
+  if (imc < 18.5) {
+    return 'Abaixo do peso';
+  } else if (imc >= 18.5 && imc <= 24.9) {
+    return 'Peso ideal (Normal)';
+  } else if (imc >= 25 && imc <= 29.9) {
+    return 'Sobrepeso (Acima do peso)';
+  } else if (imc >= 30 && imc <= 34.9) {
+    return 'Obesidade Grau I';
+  } else if (imc >= 35 && imc <= 39.9) {
+    return 'Obesidade Grau II';
+  } else {
+    return 'Obesidade Grau III';
+  }
+}
 
   /*
   private atletas: Pessoa[] = []

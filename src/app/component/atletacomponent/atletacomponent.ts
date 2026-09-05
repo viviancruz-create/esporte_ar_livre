@@ -68,6 +68,7 @@ constructor(private atletaService: AtletaService){}
    bairro = ''
    cidade = ''
    uf = ''
+   imc = ''
  
    editar = false
    idAtleta = 0
@@ -77,7 +78,7 @@ constructor(private atletaService: AtletaService){}
  
    //DECLARAÇÃO DE FUNÇÕES
    exibeDados() {
-     console.log(this.nome, this.cpf, this.data_nascimento, this.peso, this.altura, this.sexo, this.rua_logradouro, this.bairro, this.cidade, this.uf)
+     console.log(this.nome, this.cpf, this.data_nascimento, this.peso, this.altura, this.sexo, this.rua_logradouro, this.bairro, this.cidade, this.uf, this.imc)
    }
  
    ngOnInit() {
@@ -106,6 +107,7 @@ constructor(private atletaService: AtletaService){}
            this.bairro = objAtleta.bairro
            this.cidade = objAtleta.cidade
            this.uf = objAtleta.uf
+           this.imc = objAtleta.imc
  
            this.cdr.detectChanges()
          }, error: (msgErro) => {
@@ -127,6 +129,7 @@ constructor(private atletaService: AtletaService){}
      pessoaAtleta.bairro = this.bairro
      pessoaAtleta.cidade = this.cidade
      pessoaAtleta.uf = this.uf
+     pessoaAtleta.imc = this.imc
  
      if (!this.editar) {
        this.atletaService.adicionarAtleta(pessoaAtleta)
@@ -183,6 +186,7 @@ constructor(private atletaService: AtletaService){}
      this.bairro = ''
      this.cidade = ''
      this.uf = ''
+     this.imc = ''
    }
  
  

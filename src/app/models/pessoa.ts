@@ -11,6 +11,5 @@ export class Pessoa{
   bairro: string =''
   cidade: string = ''
   uf: string =''
-  imc: number = 0
-
+  imc: string = ''
 }
